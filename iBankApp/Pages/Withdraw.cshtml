@@ -1,0 +1,29 @@
+﻿@page
+@model IBankApp.Pages.WithdrawModel
+@{
+}
+
+<form method="post">
+    <div class="text-center">
+        <p class="display-4 p-custom mt-2">
+            WITHDRAW
+        </p>
+        <div class="container w-25 mt-5 transfer-container">
+            <div class="col gx-2 px-2 justify-content-center align-items-center mt-2">
+                @if (Model.ErrorMessage != null)
+                {
+                    <div class="pt-2">
+                        <div class="alert alert-danger">
+                            @Model.ErrorMessage
+                        </div>
+                    </div>
+                }
+                <div class="col-md-12 justify-content-center">
+                    <label asp-for="Amount" class="form-label mt-4"></label>
+                    <input asp-for="Amount" type="number" class="form-control mb-4 shadow-sm" required />
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mb-4">Withdraw</button>
+            </div>
+        </div>
+    </div>
+</form>

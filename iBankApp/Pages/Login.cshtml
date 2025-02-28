@@ -1,0 +1,38 @@
+﻿@page
+@model IBankApp.Pages.LoginModel
+@{
+}
+
+<div class="container w-50" style="margin-top: 80px;">
+    <div class="row justify-content-center">
+        <div class="col-md-6 login-container">
+            <p class="mt-4 mb-4 p-custom">LOGIN</p>
+
+            @if (Model.ErrorMessage != null)
+            {
+                <div class="alert alert-danger">
+                    @Model.ErrorMessage
+                </div>
+            }
+
+            <form method="post">
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control" type="password" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+
+                <div class="text-center mt-3">
+                    <span>Do not have an account?</span>
+                    <a asp-page="/Signup" class="btn btn-link">Register</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

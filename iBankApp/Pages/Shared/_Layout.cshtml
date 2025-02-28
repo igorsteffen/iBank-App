@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - iBank</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/IBankApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 custom-nav">
+            <div class="container">
+                <a class="navbar-brand text-custom" asp-area="" asp-page="/Index"><img class="image-nav" src="images/icon.png" />Bank</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1 justify-content-end gap-2">
+                        @if (Context.Session.GetString("auth_token") != null)
+                        {
+                            <li class="nav-item">
+                                <a asp-area="" asp-page="/Index" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Home"><i class="bi bi-house-door-fill"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-page="/Transfer" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Transfer"><i class="bi bi-arrow-left-right"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-page="/Deposit" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Deposit"><i class="bi bi-wallet2"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-page="/Withdraw" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Withdraw"><i class="bi bi-cash-coin"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <form method="post" asp-page="/Index" asp-page-handler="Logout">
+                                    <button type="submit" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout"><i class="bi bi-box-arrow-in-left"></i></button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a asp-area="" asp-page="/Signup" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sign Up"><i class="bi bi-person-plus"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-page="/Login" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Log In"><i class="bi bi-door-open"></i></a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

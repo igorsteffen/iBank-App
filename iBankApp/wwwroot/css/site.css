@@ -1,0 +1,99 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    background-color: aliceblue;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: transparent;
+}
+
+.custom-card {
+    transition: transform 0.5s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+}
+
+    .custom-card:hover {
+        transform: translateY(-10px);
+        transition: transform 0.5s ease, box-shadow 0.3s, background-color 0.3s ease;
+        border-color: black;
+        box-shadow: 0 9px 20px rgba(0,0,0,0.2);
+        background-color: #f8ffff;
+    }
+
+.image-nav {
+    height: 25px;
+    width: 25px;
+    border-radius: 6px;
+    margin-right: 2px;
+}
+
+.login-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 12px 15px 36px gray;
+}
+
+.transfer-container {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 12px 15px 36px gray;
+}
+
+.balance-container {
+    border-radius: 20px;
+    box-shadow: 12px 15px 36px gray;
+}
+
+.custom-nav {
+    background: linear-gradient(45deg, #258cfb, #2575fc)
+}
+
+.text-custom {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.p-custom {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.index-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 12px 15px 36px gray;
+}
+
+.scrollable-container {
+    max-height: 400px; /* Define a altura máxima da div */
+    overflow-y: auto; /* Adiciona scroll vertical quando necessário */
+    border: 1px solid #ddd; /* Opcional: borda para destacar a área */
+    padding: 10px; /* Espaçamento interno */
+}
+
+.image-nav-menu {
+    height: 16px;
+    width: 16px;
+}

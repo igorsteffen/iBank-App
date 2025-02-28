@@ -1,0 +1,33 @@
+﻿@page
+@model IBankApp.Pages.ActivationModel
+@{
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 login-container">
+            <p class="mt-4 mb-4 p-custom">Activate Account</p>
+
+            @if (Model.ErrorMessage != null)
+            {
+                <div class="alert alert-danger">
+                    @Model.ErrorMessage
+                </div>
+            }
+
+            <form method="post">
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ActivationCode" class="form-label"></label>
+                    <input asp-for="ActivationCode" class="form-control" value="123456" readonly/>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Activate</button>
+
+            </form>
+        </div>
+    </div>
+</div>

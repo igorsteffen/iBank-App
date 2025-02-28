@@ -1,0 +1,64 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <p class="display-4 p-custom">
+        Welcome, @Model.Account.firstName @Model.Account.lastName
+    </p>
+    <div class="col gx-2 px-2 mt-2">
+        <div class="d-flex justify-content-center gap-5 col-md-12 align-items-center w-100">
+            <p class="mb-0">Your Current Balance is: </p>
+            <h4>CAD$ @Model.Balance.balance</h4>
+        </div>
+    </div>
+    <div class="index-container w-50 mx-auto text-center">
+        <div class="scrollable-container">
+            @foreach (var statement in Model.Statements.OrderByDescending(s => s.dateTime))
+            {
+                <p class="p-custom">Statements History</p>
+                <div class="border mb-5">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>@statement.type</th>
+                            </tr>
+                            <tr>
+                                <th>Amount</th>
+                                <th>@statement.amount</th>
+                            </tr>
+                            <tr>
+                                <th>Date</th>
+                                <td>@statement.dateTime</td>
+                            </tr>
+                            <tr>
+                                <th>From</th>
+                                <th>Name</th>
+                                <td>@statement.fromAccount.firstName @statement.fromAccount.lastName</td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>Email</th>
+                                <td>@statement.fromAccount.email</td>
+                            </tr>
+                            <tr>
+                                <th>To</th>
+                                <th>Name</th>
+                                <td>@statement.toAccount.firstName @statement.toAccount.lastName</td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>Email</th>
+                                <td>@statement.toAccount.email</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
