@@ -22,7 +22,7 @@
 
 <li>Log In Account</li>
 
-<li>Statement History</li>
+<li>Transaction History</li>
 
 <li>Transfer, Deposit and Withdraw Operations</li>
 
